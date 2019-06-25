@@ -19,7 +19,8 @@ export class AddTodoComponent implements OnInit {
     const todo = {
       title: this.title, 
       completed: false
-    }
+    };
+    debugger;
     
     this.addTodo.emit(todo);
   }
