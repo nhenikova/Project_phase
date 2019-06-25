@@ -18,12 +18,13 @@ export class TodoService {
 
   //Get Todos
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>('${this.todosUrl}${this.todosLimit}');
+    const url = `${this.todosUrl}${this.todosLimit}`;
+    return this.http.get<Todo[]>(url);
   }
 
   //Toggle Completed, put request
   toggleCompleted(todo: Todo): Observable<any> {
-    const url = '${this.todosUrl}/${todo.id}';
+    const url = `${this.todosUrl}/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
   }
 
