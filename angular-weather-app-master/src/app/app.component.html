@@ -1,2 +1,9 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div class="search">
+        <input type="text" [(ngModel)]="search"/>
+        <br />
+        <button (click)="onSearch()" >Search</button>
+      </div>
+      <div *ngIf="!search">
+        <app-search [response]="response"></app-search>
+      </div>
+      <app-cities *ngIf="search" [city]="city"></app-cities>
