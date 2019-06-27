@@ -4,16 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from './services/api.service';
 import { FormsModule} from '@angular/forms';
-import { SearchComponent } from './components/search/search.component';
-import { CitiesComponent } from './components/cities/cities.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CurrentcityweatherComponent } from './dashboard/currentcityweather/currentcityweather.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import { DayforecastComponent } from './forecast/dayforecast/dayforecast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-     SearchComponent,
-     CitiesComponent
+     DashboardComponent,
+     CurrentcityweatherComponent,
+     ForecastComponent,
+     DayforecastComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,7 @@ import { CitiesComponent } from './components/cities/cities.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

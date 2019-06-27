@@ -1,0 +1,5 @@
+<input type="text" id="tbCity" [(ngModel)]="newCity">
+<button (click)="addNewCity()">Add City</button>
+<div *ngFor="let city of cities">
+    <app-currentcityweather [city]="city"></app-currentcityweather>
+</div>

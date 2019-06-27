@@ -1,0 +1,9 @@
+<div *ngIf="weather">
+    <a [routerLink]="['/dashboard', this.weather.id]"><h1>{{ weather.name }}</h1></a>
+    <h2>{{ weather.sys.country }}</h2>
+ 
+    <div>
+        <img src='http://openweathermap.org/img/wn/{{weather.weather[0].icon}}@2x.png' title="{{ weather.weather[0].description }}"/>
+        <span>{{ weather.main.temp }} °C</span>
+    </div>
+</div>

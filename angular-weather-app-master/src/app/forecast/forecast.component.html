@@ -1,0 +1,3 @@
+<div *ngIf="forecast">
+    <app-dayforecast *ngFor="let weather of forecast.list" [weather]="weather"></app-dayforecast>
+</div>
