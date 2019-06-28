@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    clear: both;
+    margin: 10px 0;
+}
+
+label > input {
+    float: right;
+    margin-left: 5px;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+#result {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+}

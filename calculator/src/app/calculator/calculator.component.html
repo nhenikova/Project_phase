@@ -1,0 +1,17 @@
+<form [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
+    <label for="x">
+      První číslo: <input id="x" type="number" required formControlName="x">
+    </label>
+    <label for="y">
+      Druhé číslo: <input id="y" type="number" required formControlName="y">
+    </label>
+    <label for="operation">
+      Operace:
+      <select id="operation" required formControlName="operation">
+        <option value="">--Vyberte operaci--</option>
+        <option *ngFor="let operation of operations | keyvalue" [value]="operation.key">{{ operation.value }}</option>
+      </select>
+    </label>
+    <input type="submit" [disabled]="!calculatorForm.valid" value="Spočítej">
+  </form>
+  <div id="result" [hidden]="result == null">Výsledek je: {{ result }}</div>
