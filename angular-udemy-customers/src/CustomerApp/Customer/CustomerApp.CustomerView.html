@@ -1,15 +1,15 @@
 <form [formGroup]="CustomerModel.formCustomerGroup">
-Customer Code :<input formControlName="CustomerCodeControl" 
+Customer Code :<input id="txtcode" formControlName="CustomerCodeControl" 
 [(ngModel)]="CustomerModel.CustomerCode" 
   type=text/><br>
-Customer Name :<input formControlName="CustomerNameControl"
+Customer Name :<input id="txtname" formControlName="CustomerNameControl"
 [(ngModel)]="CustomerModel.CustomerName"
 type=text/><br>
-Customer Amount :<input [(ngModel)]="CustomerModel.CustomerAmount"
+Customer Amount :<input  #txtAmount id="txtamount" [(ngModel)]="CustomerModel.CustomerAmount"
 [ngModelOptions]="{standalone: true}"
 type=text/><br>
-<input [disabled]="!(CustomerModel.formCustomerGroup.valid)" (click)="Add()"  type=button value="Add"/>
-<input [disabled]="Disable" type="button" value="send to server" (click)="PosttoServer()"/>
+<input id="btnadd" [disabled]="!(CustomerModel.formCustomerGroup.valid)" (click)="Add()"  type=button value="Add"/>
+<input id="btnsubmit"  [disabled]="Disable" type="button" value="send to server" (click)="PosttoServer()"/>
 
 </form>
 <div *ngIf="CustomerModel.formCustomerGroup.dirty" 

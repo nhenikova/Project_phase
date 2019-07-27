@@ -1,20 +1,25 @@
-import { Component , Injector  } from '@angular/core';
+import { Component , Injector, ViewChild, ElementRef  } from '@angular/core';
 import {Customer} from "./CustomerApp.model"
 import {BaseLogger} from "../Utility/CustomerApp.Logger"
 import {HttpClient} from "@angular/common/http"
 @Component({
   templateUrl: './CustomerApp.CustomerView.html'
+
 })
 export  class CustomerComponent {
   title = 'CustomerApplication';
-  CustomerModel : Customer = new Customer();
-  CustomerModels :Array<Customer> = new Array<Customer>();
-  Logobj : BaseLogger = null;
-  Disable:boolean = false;
-  constructor(_injector:Injector, public httpc:HttpClient ){
+  CustomerModel: Customer = new Customer();
+  CustomerModels: Array<Customer> = new Array<Customer>();
+  Logobj: BaseLogger = null;
+  Disable: boolean = false;
+  BackGroundColor: string = '';
+  // @ViewChild('txtAmount')
+  // txtAmount: ElementRef;
+  constructor(_injector: Injector, public httpc: HttpClient ){
     this.Logobj = _injector.get("1");
     this.Logobj.Log();
   }
+
   PosttoServer(){
     //http://localhost:3000/Customers
     // create a light weight DTO Data transfer object
@@ -28,7 +33,7 @@ export  class CustomerComponent {
     res=>this.Error(res));
   }
   GetFromServer(){
-    
+
     this.httpc.get("http://localhost:3000/Customers").
     subscribe(res=>this.SuccessGet(res),res=>this.Error(res));
   }
@@ -36,7 +41,7 @@ export  class CustomerComponent {
     console.debug(res.json());
   }
   Success(res) {
-   this.GetFromServer();
+    this.GetFromServer();
   }
   SuccessGet(res) {
     this.CustomerModels = res;
@@ -45,13 +50,13 @@ export  class CustomerComponent {
   }
   SelectCustomer(_selected:Customer){
     this.CustomerModel = _selected;
-    
+
   }
   Add(){
     this.CustomerModels.push(this.CustomerModel);
     this.CustomerModel = new Customer();// clear UI
   }
-  
+
   hasError(typeofvalidator:string,
         controlname:string) : boolean{
           return this.CustomerModel
